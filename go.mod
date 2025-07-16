@@ -1,4 +1,4 @@
-module github.com/MrBarreto/CRUD-OpenTelemetry.git
+module github.com/MrBarreto/CRUD-OpenTelemetry
 
 go 1.24.5
 
