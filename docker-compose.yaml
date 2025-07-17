@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  myapplication:
+    build: .
+    ports:
+      - "8080:8080"
+    environment:
+      - CONN_STR=${MONGO_URI}
+    networks:
+      - myapp_network
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongodb/mongodb-community-server:6.0-ubi8
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - type: bind
+        source: /home/saviobarreto/data
+        target: /data/db
+    networks:
+      - myapp_network
+
+networks:
+  myapp_network:
+    driver: bridge
