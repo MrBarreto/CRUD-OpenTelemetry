@@ -1,9 +1,11 @@
 package customError
 
+import "net/http"
+
 type CustomError struct {
 	Message string   `json:"message"`
 	Err     string   `json:"error"`
-	Code    int64    `json:"code"`
+	Code    int      `json:"code"`
 	Causes  []Causes `json:"causes"`
 }
 
@@ -12,7 +14,7 @@ type Causes struct {
 	Message string `json:"message"`
 }
 
-func NewCustomErr(message string, err string, code int32, causes []Causes) &CustomError {
+func NewCustomErr(message string, err string, code int, causes []Causes) *CustomError {
 	return &CustomError{
 		Message: message,
 		Err:     err,
