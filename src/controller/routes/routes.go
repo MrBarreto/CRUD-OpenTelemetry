@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/MrBarreto/CRUD-OpenTelemetry/controller"
+	"github.com/MrBarreto/CRUD-OpenTelemetry/src/controller"
 	"github.com/gin-gonic/gin"
 )
 
